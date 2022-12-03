@@ -1,13 +1,19 @@
-mod day1;
-mod day2;
 mod utilities;
 
-fn main() {
-  println!("Day 1 (first): {}", day1::first());
-  println!("Day 1 (second): {}", day1::second());
-  println!();
+mod day1;
+mod day2;
+mod day3;
 
-  println!("Day 2 (first): {}", day2::first());
-  println!("Day 2 (second): {}", day2::second());
+fn main() {
+  // println!("Day 1 (first): {}", day1::first());
+  // println!("Day 1 (second): {}", day1::second());
+  // println!();
+  //
+  // println!("Day 2 (first): {}", day2::first());
+  // println!("Day 2 (second): {}", day2::second());
+  // println!();
+
+  println!("Day 3 (first): {}", day3::first());
+  println!("Day 3 (second): {}", day3::second());
   println!();
 }
