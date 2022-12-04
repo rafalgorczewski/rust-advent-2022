@@ -1,7 +1,7 @@
 use super::utilities::load_file_split;
 
 pub fn first() -> String {
-  load_file_split("day1.txt", "")
+  load_file_split("inputs/day1.txt", "")
     .into_iter()
     .map(|chunk| chunk.iter().map(|x| x.parse::<i32>().unwrap()).sum::<i32>())
     .max()
@@ -10,7 +10,7 @@ pub fn first() -> String {
 }
 
 pub fn second() -> String {
-  let mut sums = load_file_split("day1.txt", "")
+  let mut sums = load_file_split("inputs/day1.txt", "")
     .into_iter()
     .map(|chunk| chunk.iter().map(|x| x.parse::<i32>().unwrap()).sum::<i32>())
     .collect::<Vec<i32>>();

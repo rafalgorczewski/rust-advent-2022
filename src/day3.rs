@@ -2,7 +2,7 @@ use super::utilities::load_file;
 use std::collections::{HashMap, HashSet};
 
 pub fn first() -> String {
-  load_file("day3.txt")
+  load_file("inputs/day3.txt")
     .into_iter()
     .map(|x| {
       let halves = x.split_at(x.len() / 2);
@@ -19,7 +19,7 @@ pub fn first() -> String {
 }
 
 pub fn second() -> String {
-  load_file("day3.txt")
+  load_file("inputs/day3.txt")
     .chunks(3)
     .map(|group| {
       let mut item_types: HashMap<u8, i32> = HashMap::new();

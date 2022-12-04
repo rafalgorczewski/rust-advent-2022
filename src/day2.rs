@@ -6,7 +6,7 @@ pub fn first() -> String {
   let map_to_opponent = HashMap::from([('X', 'A'), ('Y', 'B'), ('Z', 'C')]);
   let scores = HashMap::from([('X', 1), ('Y', 2), ('Z', 3)]);
 
-  load_file("day2.txt")
+  load_file("inputs/day2.txt")
     .into_iter()
     .map(|x| {
       let lhs = x.as_bytes()[0] as char;
@@ -30,7 +30,7 @@ pub fn second() -> String {
   let sign_scores = HashMap::from([('A', 1), ('B', 2), ('C', 3)]);
   let condition_scores = HashMap::from([('X', 0), ('Y', 3), ('Z', 6)]);
 
-  load_file("day2.txt")
+  load_file("inputs/day2.txt")
     .into_iter()
     .map(|x| {
       let lhs = x.as_bytes()[0] as char;
