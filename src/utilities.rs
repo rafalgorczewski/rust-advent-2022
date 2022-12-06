@@ -1,8 +1,11 @@
 use std::fs::read_to_string;
 
+pub fn load_file_string(name: &str) -> String {
+  read_to_string(name).expect("File not found!")
+}
+
 pub fn load_file(name: &str) -> Vec<String> {
-  read_to_string(name)
-    .expect("File not found!")
+  load_file_string(name)
     .lines()
     .map(|x| x.to_owned())
     .collect()
