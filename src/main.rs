@@ -7,10 +7,11 @@ mod day4;
 mod day5;
 mod day6;
 mod day7;
+mod day8;
 
 fn main() {
-  println!("First: {}", day7::first());
-  println!("Second: {}", day7::second());
+  println!("First: {}", day8::first());
+  println!("Second: {}", day8::second());
 }
 
 // use super::utilities::load_file;
