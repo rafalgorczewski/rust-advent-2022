@@ -57,7 +57,6 @@ pub fn first() -> String {
   tail_positions.len().to_string()
 }
 
-pub fn second() -> String {
-  load_file("inputs/day9.txt");
-  ""
-}
+// pub fn second() -> String {
+//   load_file("inputs/day9.txt");
+// }

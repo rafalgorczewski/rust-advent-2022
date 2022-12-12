@@ -17,14 +17,14 @@ impl Default for Op {
 struct Monkey {
   items: Vec<u128>,
   op: Op,
-  divisible_by: i32,
+  pub divisible_by: i32,
   if_true: i32,
   if_false: i32,
   pub activity: usize,
 }
 
 impl Monkey {
-  pub fn inspect_items(&mut self, with_relief: bool) -> Vec<(i32, u128)> {
+  pub fn inspect_items(&mut self, lcm: Option<u128>) -> Vec<(i32, u128)> {
     let mut to_throw = Vec::new();
     for item in self.items.iter() {
       let mut item = match self.op {
@@ -33,7 +33,9 @@ impl Monkey {
         Op::Add(val) => item + val as u128,
         Op::Mul(val) => item * val as u128,
       };
-      if with_relief {
+      if let Some(lcm) = lcm {
+        item = item % lcm;
+      } else {
         item = item.div_floor(3);
       }
       if (item % self.divisible_by as u128) == 0 {
@@ -112,7 +114,7 @@ pub fn first() -> String {
 
   for _ in 0..20 {
     for i in 0..monkeys.len() {
-      let items = monkeys[i].inspect_items(true);
+      let items = monkeys[i].inspect_items(None);
       for item in items {
         monkeys[item.0 as usize].receive_item(item.1);
       }
@@ -138,9 +140,10 @@ pub fn second() -> String {
     })
     .collect::<Vec<_>>();
 
-  for _ in 0..20 {
+  let lcm: u128 = monkeys.iter().map(|m| m.divisible_by as u128).product();
+  for _ in 0..10000 {
     for i in 0..monkeys.len() {
-      let items = monkeys[i].inspect_items(false);
+      let items = monkeys[i].inspect_items(Some(lcm));
       for item in items {
         monkeys[item.0 as usize].receive_item(item.1);
       }
